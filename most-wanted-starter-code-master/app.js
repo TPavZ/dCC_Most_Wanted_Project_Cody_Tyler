@@ -8,13 +8,14 @@
 
 // app is the function called to start the entire application
 function app(people){
-  let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no' for more options.", yesNo).toLowerCase();
   let searchResults;
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
       break;
     case 'no':
+      seachResults = searchBySingleTrait(people);
       // TODO: search by traits
       break;
       default:
@@ -86,7 +87,7 @@ function searchByName(people){
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
-  let eyeColor = promptFor("Do you know the person's eye color?", autoValid);
+  let eyeColor = promptFor("What is the person's eye color?", autoValid);
   
   let searchEyeColor = people.filter(function(potentialMatch){
     if(potentialMatch.eyeColor === eyeColor){
@@ -100,7 +101,7 @@ function searchByEyeColor(people){
 }
 
 function searchByGender(people){
-  let gender = promptFor("Do you know the person's gender?", autoValid);
+  let gender = promptFor("What is the person's gender?", autoValid);
   
   let searchGender = people.filter(function(potentialMatch){
     if(potentialMatch.gender === gender){
@@ -114,48 +115,80 @@ function searchByGender(people){
   
   }
 
-  function searchByHeight(people){
-    let height = promptFor("Do you know the person's height?", autoValid);
-    
-    let searchHeight = people.filter(function(potentialMatch){
-      if(potentialMatch.height === height){
-        return true;
-      }
-      else{
-        return false;
-      }
-    })
-      return searchHeight;
-  }
-
-  function searchByWeight(people){
-    let weight = promptFor("Do you know the person's weight?", autoValid);
-    
-    let searchWeight = people.filter(function(potentialMatch){
-      if(potentialMatch.weight === weight){
-        return true;
-      }
-      else{
-        return false;
-      }
-    })
-      return searchWeight;
-  }
-
-  function searchByOccupation(people){
-    let occupation = promptFor("Do you know the person's occupation?", autoValid);
-    
-    let searchOccupation = people.filter(function(potentialMatch){
-      if(potentialMatch.occupation === occupation){
-        return true;
-      }
-      else{
-        return false;
-      }
-    })
-      return searchOccupation;
-  }
+function searchByHeight(people){
+  let height = promptFor("What is the person's height?", autoValid);
   
+  let searchHeight = people.filter(function(potentialMatch){
+    if(potentialMatch.height === height){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return searchHeight;
+}
+
+function searchByWeight(people){
+  let weight = promptFor("What is the person's weight?", autoValid);
+  
+  let searchWeight = people.filter(function(potentialMatch){
+    if(potentialMatch.weight === weight){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return searchWeight;
+}
+
+function searchByOccupation(people){
+  let occupation = promptFor("What is the person's occupation?", autoValid);
+  
+  let searchOccupation = people.filter(function(potentialMatch){
+    if(potentialMatch.occupation === occupation){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return searchOccupation;
+}
+
+function searchBySingleTrait(people) {
+  let search = promptFor("Would you like to sort by a person's specific trait? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  switch (search) {
+    case 'yes':
+      let selection = promptFor("By what trait would you like to search by? Enter corresponding number \n" +
+        "1. Eye Color \n" +
+        "2. Gender \n" +
+        "3. Height \n" +
+        "4. Weight \n" +
+        "5. Occupation \n",
+        autoValid);
+      let searchSelection = people;
+      if (selection.includes(1)) {
+        searchSelection = searchByEyeColor(searchSelection);
+      }
+      if (selection.includes(2)) {
+        searchSelection = searchByGender(searchSelection);
+      }
+      if (selection.includes(3)) {
+        searchSelection = searchByHeight(searchSelection);
+      }
+      if (selection.includes(4)) {
+        searchSelection = searchByWeight(searchSelection);
+      }
+      if (selection.includes(5)) {
+        searchSelection = searchByOccupation(searchSelection);
+      }
+      return displayPerson(searchSelection);
+  }
+}
+
+
 
 //TODO: add other trait filter functions here.
 
