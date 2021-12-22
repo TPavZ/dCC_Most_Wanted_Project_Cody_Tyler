@@ -44,6 +44,7 @@ function mainMenu(person, people){
     // TODO: get person's info
     break;
     case "family":
+    displaySpouse(person[0])
     // TODO: get person's family
     break;
     case "descendants":
@@ -122,6 +123,18 @@ function displayPerson(person){
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
 }
+
+function displaySpouse(person, people){
+  let results = people.filter(function(person){
+  if(person.currentSpouse === person.id){
+    return true;
+  }
+  else{
+    return false;
+  }})
+return results 
+}
+
 
 //#endregion
 
