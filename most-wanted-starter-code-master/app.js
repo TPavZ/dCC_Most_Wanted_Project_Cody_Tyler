@@ -124,15 +124,15 @@ function displayPerson(person){
   alert(personInfo);
 }
 
-function displaySpouse(person, people){
-  let results = people.filter(function(person){
-  if(person.currentSpouse === person.id){
+function displaySpouse(person){
+  let results = data.filter(function(person){
+  if(person.currentSpouse === person.currentSpouse){
     return true;
   }
   else{
     return false;
   }})
-return results 
+return alert(results) 
 }
 
 
