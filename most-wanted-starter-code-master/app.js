@@ -187,7 +187,10 @@ function searchBySingleTrait(people) {
         searchSelection = searchByOccupation(searchSelection);
       }
       return displayPerson(searchSelection);
-  }
+      case 'no':
+        app(people);
+        break;
+      }
 }
 
 
