@@ -194,14 +194,14 @@ function displayPerson(person){
 
 
 function displaySpouse(person){
-  let results = data.filter(function(person){
-  if(person.currentSpouse === person.currentSpouse){
+  let results = data.filter(function(element){
+  if(person.currentSpouse === element.id){
     return true;
   }
   else{
     return false;
   }})
-return alert(results) 
+return alert(results[0].firstName + " " + results[0].lastName) 
 }
 
 
