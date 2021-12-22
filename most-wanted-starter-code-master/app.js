@@ -113,7 +113,7 @@ function displayPerson(person){
   personInfo += "Last Name: " + person.lastName + "\n";
   personInfo += "gender: " + person.gender + "\n";
   personInfo += "dob: " + person.dob + "\n";
-  personInfo += "Height: " + person.height + "\n";
+  personInfo += "height: " + person.height + "\n";
   personInfo += "weight: " + person.weight + "\n";
   personInfo += "eyeColor: " + person.eyeColor + "\n";
   personInfo += "occupation: " + person.occupation + "\n";
