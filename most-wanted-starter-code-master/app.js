@@ -47,6 +47,7 @@ function mainMenu(person, people){
     case "family":
     displaySpouse(person[0])
     displayParents(person[0])
+    displaySiblings(person[0])
     // TODO: get person's family
     break;
     case "descendants":
@@ -260,6 +261,26 @@ function displayParents(person){
 } else
   alert("No Parents Found!")}
   
+
+
+  function displaySiblings(person){
+    let results = data.filter(function(element){
+    if(person.parents.includes(element.parents[0])){
+      return true;
+    }
+    else{
+      return false;
+      
+    }})
+    if(results.length != 0){
+      let siblings = ""
+      for(let i = 0; i < results.length; i++){
+        siblings += results[i].firstName +" "+  results[i].lastName +"\n"
+      }
+      alert("Siblings: " + siblings)
+  } else
+    alert("No Siblings Found!")}
+
 
 
 //#endregion
