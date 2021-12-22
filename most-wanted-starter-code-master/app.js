@@ -201,7 +201,7 @@ function displaySpouse(person){
   else{
     return false;
   }})
-return alert(results[0].firstName + " " + results[0].lastName) 
+return alert("Spouse: " + results[0].firstName + " " + results[0].lastName) 
 }
 
 
