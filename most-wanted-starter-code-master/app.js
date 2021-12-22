@@ -86,8 +86,76 @@ function searchByName(people){
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
-
+  let eyeColor = promptFor("Do you know the person's eye color?", autoValid);
+  
+  let searchEyeColor = people.filter(function(potentialMatch){
+    if(potentialMatch.eyeColor === eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return searchEyeColor;
 }
+
+function searchByGender(people){
+  let gender = promptFor("Do you know the person's gender?", autoValid);
+  
+  let searchGender = people.filter(function(potentialMatch){
+    if(potentialMatch.gender === gender){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+    return searchGender;
+  
+  }
+
+  function searchByHeight(people){
+    let height = promptFor("Do you know the person's height?", autoValid);
+    
+    let searchHeight = people.filter(function(potentialMatch){
+      if(potentialMatch.height === height){
+        return true;
+      }
+      else{
+        return false;
+      }
+    })
+      return searchHeight;
+  }
+
+  function searchByWeight(people){
+    let weight = promptFor("Do you know the person's weight?", autoValid);
+    
+    let searchWeight = people.filter(function(potentialMatch){
+      if(potentialMatch.weight === weight){
+        return true;
+      }
+      else{
+        return false;
+      }
+    })
+      return searchWeight;
+  }
+
+  function searchByOccupation(people){
+    let occupation = promptFor("Do you know the person's occupation?", autoValid);
+    
+    let searchOccupation = people.filter(function(potentialMatch){
+      if(potentialMatch.occupation === occupation){
+        return true;
+      }
+      else{
+        return false;
+      }
+    })
+      return searchOccupation;
+  }
+  
 
 //TODO: add other trait filter functions here.
 
@@ -125,8 +193,8 @@ function displayPerson(person){
 }
 
 function displaySpouse(person, people){
-  let results = people.filter(function(person){
-  if(person.currentSpouse === person.id){
+  let results = data.filter(function(person){
+  if(person[0].currentSpouse === person[0].id){
     return true;
   }
   else{
