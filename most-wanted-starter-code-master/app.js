@@ -113,9 +113,15 @@ function searchByGender(people){
       return false;
     }
   })
-    return searchGender;
-  
+  if(searchGender.length != 0){
+    let results = ""
+  for(let i = 0; i < searchGender.length; i++){
+    results += searchGender[i].firstName +" "+  searchGender[i].lastName +"\n"
   }
+  alert("test!" + results)
+    //return searchGender;
+  
+  }}
 
 function searchByHeight(people){
   let height = promptFor("What is the person's height?", autoValid);
