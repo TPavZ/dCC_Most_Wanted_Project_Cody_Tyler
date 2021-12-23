@@ -107,6 +107,9 @@ function searchByEyeColor(people) {
     }
     alert("Here are your EYE COLOR search results: \n" + results);
   }
+  else {
+    alert("No Results Found!")
+  }
 }
 
 function searchByGender(people) {
@@ -126,6 +129,9 @@ function searchByGender(people) {
       results += searchGender[i].firstName + " " + searchGender[i].lastName + " - " + searchGender[i].gender + "\n"
     }
     alert("Here are your GENDER search results: \n" + results);
+  }
+  else {
+    alert("No Results Found!")
   }
 }
 
@@ -147,6 +153,9 @@ function searchByHeight(people) {
     }
     alert("Here are your HEIGHT search results: \n" + results);
   }
+  else {
+    alert("No Results Found!")
+  }
 }
 
 function searchByWeight(people) {
@@ -166,6 +175,9 @@ function searchByWeight(people) {
       results += searchWeight[i].firstName + " " + searchWeight[i].lastName + " - " + searchWeight[i].weight + "\n"
     }
     alert("Here are your WEIGHT search results: \n" + results);
+  }
+  else {
+    alert("No Results Found!")
   }
 }
 
@@ -187,10 +199,13 @@ function searchByOccupation(people) {
     }
     alert("Here are your OCCUPATION search results: \n" + results);
   }
+  else {
+    alert("No Results Found!")
+  }
 }
 
 function searchByDateOfBirth(people) {
-  let dob = promptFor("What is the person's date of birth?", autoValid);
+  let dob = promptFor("What is the person's date of birth? Format: mo/dy/year", autoValid);
 
   let searchByDateOfBirth = people.filter(function (potentialMatch) {
     if (potentialMatch.dob === dob) {
@@ -206,6 +221,9 @@ function searchByDateOfBirth(people) {
       results += searchByDateOfBirth[i].firstName + " " + searchByDateOfBirth[i].lastName + " - " + searchByDateOfBirth[i].dob + "\n"
     }
     alert("Here are your DATE OF BIRTH search results: \n" + results);
+  }
+  else {
+    alert("No Results Found!")
   }
 }
 
@@ -251,7 +269,7 @@ function searchBySingleTrait(people) {
 }
 
 function searchByMultipleTrait(people) {
-  
+
 }
 
 
