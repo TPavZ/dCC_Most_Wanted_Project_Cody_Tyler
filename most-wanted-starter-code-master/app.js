@@ -357,9 +357,9 @@ function displaySiblings(person) {
 
     }
   })
-  if (results.length != 0) {
+  if (results.length != 0){
     let siblings = ""
-    for (let i = 0; i < results.length; i++) {
+    for (let i = 0; i < results.length; i++){
       siblings += results[i].firstName + " " + results[i].lastName + "\n"
     }
     alert("Siblings: " + siblings)
@@ -376,7 +376,11 @@ function displaySiblings(person) {
         return false;
       }})
       if(results.length != 0){
-      alert("Descendants: " + results[0].firstName + " " + results[0].lastName) 
+        let descendants = ""
+        for (let i = 0; i< results.length; i++){
+          descendants += results[i].firstName + " " + results[i].lastName + "\n"
+        }
+      alert("Descendants: " + descendants) 
       } else
       alert("No Descendants Found!")}
 
