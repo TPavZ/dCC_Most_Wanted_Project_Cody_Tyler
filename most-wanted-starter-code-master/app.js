@@ -15,7 +15,7 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      seachResults = searchBySingleTrait(people);
+      searchResults = searchBySingleTrait(people);
       // TODO: search by traits
       break;
       default:
@@ -160,7 +160,7 @@ function searchByOccupation(people){
 }
 
 function searchBySingleTrait(people) {
-  let search = promptFor("Would you like to sort by a person's specific trait? Enter 'yes' or 'no'", yesNo).toLowerCase();
+  let search = promptFor("Would you like to sort by a person's specific trait? Enter 'yes' or 'no' \n To search by multiple traits Enter 'multi'", autoValid).toLowerCase();
   switch (search) {
     case 'yes':
       let selection = promptFor("By what trait would you like to search by? Enter corresponding number \n" +
@@ -187,6 +187,9 @@ function searchBySingleTrait(people) {
         searchSelection = searchByOccupation(searchSelection);
       }
       return displayPerson(searchSelection);
+      case 'multi':
+        // This is where the search for multiple traits will go. 
+        break;
       case 'no':
         app(people);
         break;
