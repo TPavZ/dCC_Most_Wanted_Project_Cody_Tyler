@@ -268,7 +268,7 @@ function displayParents(person){
 
   function displaySiblings(person){
     let results = data.filter(function(element){
-    if(person.parents.includes(element.parents[0])){
+    if(person.parents.includes(element.parents[0]) && person.id != element.id){
       return true;
     }
     else{
