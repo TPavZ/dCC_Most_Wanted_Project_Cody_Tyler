@@ -397,23 +397,42 @@ function displaySiblings(person) {
     alert("No Siblings Found!")
 }
 
-function displayDescendants(person) {
-  let results = data.filter(function (element) {
-    if (person.id === element.parents[0]) {
+function displayDescendants(person){
+  let results = data.filter(function(element){
+    if(person.id === element.parents[0]){
+        return true;
+    }
+    else{
+        return false;
+      }
+  })
+    if(results.length != 0){
+      let descendants = ""
+      for (let i = 0; i< results.length; i++){
+        descendants += results[i].firstName + " " + results[i].lastName + "\n"
+        displaySecondGenDescendants(results[i])  
+      }
+      alert("Children: " + descendants) 
+      } else
+      alert("No Children Found!")
+}
+
+function displaySecondGenDescendants(descendants){
+  let results = data.filter(function(element){
+    if(descendants.id === element.parents[0]){
       return true;
     }
-    else {
+    else{
       return false;
     }
   })
-  if (results.length != 0) {
-    let descendants = ""
-    for (let i = 0; i < results.length; i++) {
-      descendants += results[i].firstName + " " + results[i].lastName + "\n"
+  if(results.length != 0){
+    let secondGenDescendants =""
+    for (let i =0; i < results.length; i++){
+      secondGenDescendants += results[i].firstName + " " + results[i].lastName + "\n"
     }
-    alert("Descendants: " + descendants)
-  } else
-    alert("No Descendants Found!")
+    alert("Grandkids: " + secondGenDescendants)
+  }
 }
 
 //#endregion
