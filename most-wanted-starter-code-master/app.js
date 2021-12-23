@@ -41,14 +41,14 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-    displayPerson(person[0])
     // TODO: get person's info
+    displayPerson(person[0])
     break;
     case "family":
+    // TODO: get person's family
     displaySpouse(person[0])
     displayParents(person[0])
     displaySiblings(person[0])
-    // TODO: get person's family
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -223,9 +223,7 @@ function displayPerson(person){
   personInfo += "height: " + person.height + "\n";
   personInfo += "weight: " + person.weight + "\n";
   personInfo += "eyeColor: " + person.eyeColor + "\n";
-  personInfo += "occupation: " + person.occupation + "\n";
-  personInfo += "parents: " + person.parents + "\n";
-  personInfo += "currentSpouse: " + person.currentSpouse + "\n";  
+  personInfo += "occupation: " + person.occupation + "\n";  
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
 }
