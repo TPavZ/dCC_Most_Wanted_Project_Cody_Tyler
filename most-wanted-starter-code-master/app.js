@@ -51,8 +51,9 @@ function mainMenu(person, people) {
       displaySiblings(person[0])
       break;
     case "descendants":
-      // TODO: get person's descendants
-      break;
+    // TODO: get person's descendants
+    displayDescendants(person[0])
+    break;
     case "restart":
       app(people); // restart
       break;
@@ -348,7 +349,18 @@ function displaySiblings(person) {
     alert("No Siblings Found!")
 }
 
-// function displayDescendants
+    function displayDescendants(person){
+      let results = data.filter(function(element){
+      if(person.id === element.parents){
+        return true;
+      }
+      else{
+        return false;
+      }})
+      if(results.length != 0){
+      alert("Descendants: " + results[0].firstName + " " + results[0].lastName) 
+      } else
+      alert("No Descendants Found!")}
 
 //#endregion
 
