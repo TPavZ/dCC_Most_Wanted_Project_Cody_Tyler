@@ -51,9 +51,9 @@ function mainMenu(person, people) {
       displaySiblings(person[0])
       break;
     case "descendants":
-    // TODO: get person's descendants
-    displayDescendants(person[0])
-    break;
+      // TODO: get person's descendants
+      displayDescendants(person[0])
+      break;
     case "restart":
       app(people); // restart
       break;
@@ -100,7 +100,7 @@ function searchByEyeColor(people) {
       return false;
     }
   })
-  if (searchEyeColor.length != 0) {
+  if (searchEyeColor.length > 0) {
     let results = ""
     for (let i = 0; i < searchEyeColor.length; i++) {
       results += searchEyeColor[i].firstName + " " + searchEyeColor[i].lastName + " - " + searchEyeColor[i].eyeColor + "\n"
@@ -108,8 +108,9 @@ function searchByEyeColor(people) {
     alert("Here are your EYE COLOR search results: \n" + results);
   }
   else {
-    alert("No Results Found!")
+    alert("No Results Found!");
   }
+  return searchEyeColor;
 }
 
 function searchByGender(people) {
@@ -123,7 +124,7 @@ function searchByGender(people) {
       return false;
     }
   })
-  if (searchGender.length != 0) {
+  if (searchGender.length > 0) {
     let results = ""
     for (let i = 0; i < searchGender.length; i++) {
       results += searchGender[i].firstName + " " + searchGender[i].lastName + " - " + searchGender[i].gender + "\n"
@@ -131,8 +132,9 @@ function searchByGender(people) {
     alert("Here are your GENDER search results: \n" + results);
   }
   else {
-    alert("No Results Found!")
+    alert("No Results Found!");
   }
+  return searchGender;
 }
 
 function searchByHeight(people) {
@@ -146,7 +148,7 @@ function searchByHeight(people) {
       return false;
     }
   })
-  if (searchHeight.length != 0) {
+  if (searchHeight.length > 0) {
     let results = ""
     for (let i = 0; i < searchHeight.length; i++) {
       results += searchHeight[i].firstName + " " + searchHeight[i].lastName + " - " + searchHeight[i].height + "\n"
@@ -154,8 +156,9 @@ function searchByHeight(people) {
     alert("Here are your HEIGHT search results: \n" + results);
   }
   else {
-    alert("No Results Found!")
+    alert("No Results Found!");
   }
+  return searchHeight;
 }
 
 function searchByWeight(people) {
@@ -169,7 +172,7 @@ function searchByWeight(people) {
       return false;
     }
   })
-  if (searchWeight.length != 0) {
+  if (searchWeight.length > 0) {
     let results = ""
     for (let i = 0; i < searchWeight.length; i++) {
       results += searchWeight[i].firstName + " " + searchWeight[i].lastName + " - " + searchWeight[i].weight + "\n"
@@ -177,8 +180,9 @@ function searchByWeight(people) {
     alert("Here are your WEIGHT search results: \n" + results);
   }
   else {
-    alert("No Results Found!")
+    alert("No Results Found!");
   }
+  return searchWeight;
 }
 
 function searchByOccupation(people) {
@@ -192,7 +196,7 @@ function searchByOccupation(people) {
       return false;
     }
   })
-  if (searchOccupation.length != 0) {
+  if (searchOccupation.length > 0) {
     let results = ""
     for (let i = 0; i < searchOccupation.length; i++) {
       results += searchOccupation[i].firstName + " " + searchOccupation[i].lastName + " - " + searchOccupation[i].occupation + "\n"
@@ -200,14 +204,15 @@ function searchByOccupation(people) {
     alert("Here are your OCCUPATION search results: \n" + results);
   }
   else {
-    alert("No Results Found!")
+    alert("No Results Found!");
   }
+  return searchOccupation;
 }
 
 function searchByDateOfBirth(people) {
   let dob = promptFor("What is the person's date of birth? Format: mo/dy/year", autoValid);
 
-  let searchByDateOfBirth = people.filter(function (potentialMatch) {
+  let searchDateOfBirth = people.filter(function (potentialMatch) {
     if (potentialMatch.dob === dob) {
       return true;
     }
@@ -215,20 +220,22 @@ function searchByDateOfBirth(people) {
       return false;
     }
   })
-  if (searchByDateOfBirth.length != 0) {
+  if (searchDateOfBirth.length > 0) {
     let results = ""
-    for (let i = 0; i < searchByDateOfBirth.length; i++) {
-      results += searchByDateOfBirth[i].firstName + " " + searchByDateOfBirth[i].lastName + " - " + searchByDateOfBirth[i].dob + "\n"
+    for (let i = 0; i < searchDateOfBirth.length; i++) {
+      results += searchDateOfBirth[i].firstName + " " + searchDateOfBirth[i].lastName + " - " + searchDateOfBirth[i].dob + "\n"
     }
     alert("Here are your DATE OF BIRTH search results: \n" + results);
   }
   else {
-    alert("No Results Found!")
+    alert("No Results Found!");
   }
+  return searchDateOfBirth;
 }
 
 function searchBySingleTrait(people) {
   let search = promptFor("Would you like to sort by a person's specific trait? Enter 'yes' or 'no' \n To search by multiple traits Enter 'multi'", autoValid).toLowerCase();
+  let searchSelection = people;
   switch (search) {
     case 'yes':
       let selection = promptFor("By what trait would you like to search by? Enter corresponding number \n" +
@@ -239,7 +246,6 @@ function searchBySingleTrait(people) {
         "5. Occupation \n" +
         "6. Date Of Birth \n",
         autoValid);
-      let searchSelection = people;
       if (selection.includes(1)) {
         searchSelection = searchByEyeColor(searchSelection);
       }
@@ -257,47 +263,49 @@ function searchBySingleTrait(people) {
       }
       if (selection.includes(6)) {
         searchSelection = searchByDateOfBirth(searchSelection);
-      }      
+      }
+      break;
     case 'multi':
-      searchResults = searchByMultipleTrait(people);
+      search = searchByMultipleTrait(people);
       break;
     case 'no':
       app(people);
       break;
   }
+  return searchSelection
 }
 
 function searchByMultipleTrait(people) {
-  let selection = promptFor("By what traits would you like to search by? Enter corresponding numbers, \n" +
-        "1. Eye Color \n" +
-        "2. Gender \n" +
-        "3. Height \n" +
-        "4. Weight \n" +
-        "5. Occupation \n" +
-        "6. Date Of Birth \n",
-        autoValid);
+  let selection = promptFor("By what traits would you like to search by? Enter corresponding numbers - ex. 1, 2, 3: \n" +
+    "1. Eye Color \n" +
+    "2. Gender \n" +
+    "3. Height \n" +
+    "4. Weight \n" +
+    "5. Occupation \n" +
+    "6. Date Of Birth \n",
+    autoValid);
 
-      // need to figure out a way to input multiple values from above ex. 1, 2, 3
+  // need to figure out a way to input multiple values from above ex. 1, 2, 3
 
-      let searchSelection = people;
-      if (selection.includes(1)) {
-        searchSelection = searchByEyeColor(searchSelection);
-      }
-      if (selection.includes(2)) {
-        searchSelection = searchByGender(searchSelection);
-      }
-      if (selection.includes(3)) {
-        searchSelection = searchByHeight(searchSelection);
-      }
-      if (selection.includes(4)) {
-        searchSelection = searchByWeight(searchSelection);
-      }
-      if (selection.includes(5)) {
-        searchSelection = searchByOccupation(searchSelection);
-      }
-      if (selection.includes(6)) {
-        searchSelection = searchByDateOfBirth(searchSelection);
-      }      
+  let searchSelection = people;
+  if (selection.includes(1)) {
+    searchSelection = searchByEyeColor(searchSelection);
+  }
+  if (selection.includes(2)) {
+    searchSelection = searchByGender(searchSelection);
+  }
+  if (selection.includes(3)) {
+    searchSelection = searchByHeight(searchSelection);
+  }
+  if (selection.includes(4)) {
+    searchSelection = searchByWeight(searchSelection);
+  }
+  if (selection.includes(5)) {
+    searchSelection = searchByOccupation(searchSelection);
+  }
+  if (selection.includes(6)) {
+    searchSelection = searchByDateOfBirth(searchSelection);
+  }
 }
 
 //#endregion
@@ -379,9 +387,9 @@ function displaySiblings(person) {
 
     }
   })
-  if (results.length != 0){
+  if (results.length != 0) {
     let siblings = ""
-    for (let i = 0; i < results.length; i++){
+    for (let i = 0; i < results.length; i++) {
       siblings += results[i].firstName + " " + results[i].lastName + "\n"
     }
     alert("Siblings: " + siblings)
@@ -389,42 +397,23 @@ function displaySiblings(person) {
     alert("No Siblings Found!")
 }
 
-function displayDescendants(person){
-  let results = data.filter(function(element){
-    if(person.id === element.parents[0]){
-        return true;
-    }
-    else{
-        return false;
-      }
-  })
-    if(results.length != 0){
-      let descendants = ""
-      for (let i = 0; i< results.length; i++){
-        descendants += results[i].firstName + " " + results[i].lastName + "\n"
-        displaySecondGenDescendants(results[i])  
-      }
-      alert("Children: " + descendants) 
-      } else
-      alert("No Children Found!")
-}
-
-function displaySecondGenDescendants(descendants){
-  let results = data.filter(function(element){
-    if(descendants.id === element.parents[0]){
+function displayDescendants(person) {
+  let results = data.filter(function (element) {
+    if (person.id === element.parents[0]) {
       return true;
     }
-    else{
+    else {
       return false;
     }
   })
-  if(results.length != 0){
-    let secondGenDescendants =""
-    for (let i =0; i < results.length; i++){
-      secondGenDescendants += results[i].firstName + " " + results[i].lastName + "\n"
+  if (results.length != 0) {
+    let descendants = ""
+    for (let i = 0; i < results.length; i++) {
+      descendants += results[i].firstName + " " + results[i].lastName + "\n"
     }
-    alert("Grandkids: " + secondGenDescendants)
-  }
+    alert("Descendants: " + descendants)
+  } else
+    alert("No Descendants Found!")
 }
 
 //#endregion
