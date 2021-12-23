@@ -139,7 +139,7 @@ function searchByHeight(people) {
   let height = promptFor("What is the person's height?", autoValid);
 
   let searchHeight = people.filter(function (potentialMatch) {
-    if (potentialMatch.height === height) {
+    if (potentialMatch.height == height) {
       return true;
     }
     else {
@@ -162,7 +162,7 @@ function searchByWeight(people) {
   let weight = promptFor("What is the person's weight?", autoValid);
 
   let searchWeight = people.filter(function (potentialMatch) {
-    if (potentialMatch.weight === weight) {
+    if (potentialMatch.weight == weight) {
       return true;
     }
     else {
@@ -257,8 +257,7 @@ function searchBySingleTrait(people) {
       }
       if (selection.includes(6)) {
         searchSelection = searchByDateOfBirth(searchSelection);
-      }
-      return displayPerson(searchSelection);
+      }      
     case 'multi':
       searchResults = searchByMultipleTrait(people);
       break;
@@ -269,14 +268,37 @@ function searchBySingleTrait(people) {
 }
 
 function searchByMultipleTrait(people) {
+  let selection = promptFor("By what traits would you like to search by? Enter corresponding numbers, \n" +
+        "1. Eye Color \n" +
+        "2. Gender \n" +
+        "3. Height \n" +
+        "4. Weight \n" +
+        "5. Occupation \n" +
+        "6. Date Of Birth \n",
+        autoValid);
 
+      // need to figure out a way to input multiple values from above ex. 1, 2, 3
+
+      let searchSelection = people;
+      if (selection.includes(1)) {
+        searchSelection = searchByEyeColor(searchSelection);
+      }
+      if (selection.includes(2)) {
+        searchSelection = searchByGender(searchSelection);
+      }
+      if (selection.includes(3)) {
+        searchSelection = searchByHeight(searchSelection);
+      }
+      if (selection.includes(4)) {
+        searchSelection = searchByWeight(searchSelection);
+      }
+      if (selection.includes(5)) {
+        searchSelection = searchByOccupation(searchSelection);
+      }
+      if (selection.includes(6)) {
+        searchSelection = searchByDateOfBirth(searchSelection);
+      }      
 }
-
-
-
-//TODO: add other trait filter functions here.
-
-
 
 //#endregion
 
