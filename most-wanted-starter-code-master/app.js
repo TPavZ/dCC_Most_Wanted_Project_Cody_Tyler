@@ -99,29 +99,34 @@ function searchByEyeColor(people){
       return false;
     }
   })
-    return searchEyeColor;
+  if (searchEyeColor.length != 0) {
+    let results = ""
+    for (let i = 0; i < searchEyeColor.length; i++) {
+      results += searchEyeColor[i].firstName + " " + searchEyeColor[i].lastName + "\n"
+    }
+    alert("Here are your EYE COLOR search results: \n" + results);
+  }
 }
 
-function searchByGender(people){
+function searchByGender(people) {
   let gender = promptFor("What is the person's gender?", autoValid);
-  
-  let searchGender = people.filter(function(potentialMatch){
-    if(potentialMatch.gender === gender){
+
+  let searchGender = people.filter(function (potentialMatch) {
+    if (potentialMatch.gender === gender) {
       return true;
     }
-    else{
+    else {
       return false;
     }
   })
-  if(searchGender.length != 0){
+  if (searchGender.length != 0) {
     let results = ""
-  for(let i = 0; i < searchGender.length; i++){
-    results += searchGender[i].firstName +" "+  searchGender[i].lastName +"\n"
+    for (let i = 0; i < searchGender.length; i++) {
+      results += searchGender[i].firstName + " " + searchGender[i].lastName + "\n"
+    }
+    alert("Here are your GENDER search results: \n" + results);
   }
-  alert("test!" + results)
-    //return searchGender;
-  
-  }}
+}
 
 function searchByHeight(people){
   let height = promptFor("What is the person's height?", autoValid);
@@ -134,7 +139,13 @@ function searchByHeight(people){
       return false;
     }
   })
-    return searchHeight;
+  if (searchHeight.length != 0) {
+    let results = ""
+    for (let i = 0; i < searchHeight.length; i++) {
+      results += searchHeight[i].firstName + " " + searchHeight[i].lastName + "\n"
+    }
+    alert("Here are your HEIGHT search results: \n" + results);
+  }
 }
 
 function searchByWeight(people){
@@ -148,7 +159,13 @@ function searchByWeight(people){
       return false;
     }
   })
-    return searchWeight;
+  if (searchWeight.length != 0) {
+    let results = ""
+    for (let i = 0; i < searchWeight.length; i++) {
+      results += searchWeight[i].firstName + " " + searchWeight[i].lastName + "\n"
+    }
+    alert("Here are your WEIGHT search results: \n" + results);
+  }
 }
 
 function searchByOccupation(people){
@@ -162,7 +179,13 @@ function searchByOccupation(people){
       return false;
     }
   })
-    return searchOccupation;
+  if (searchOccupation.length != 0) {
+    let results = ""
+    for (let i = 0; i < searchOccupation.length; i++) {
+      results += searchOccupation[i].firstName + " " + searchOccupation[i].lastName + "\n"
+    }
+    alert("Here are your OCCUPATION search results: \n" + results);
+  }
 }
 
 function searchBySingleTrait(people) {
