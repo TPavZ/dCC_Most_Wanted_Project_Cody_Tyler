@@ -399,7 +399,7 @@ function displaySiblings(person) {
 
 function displayDescendants(person){
   let results = data.filter(function(element){
-    if(person.id === element.parents[0]){
+    if(person.id === element.parents[0] || (person.id === element.parents[1])){
         return true;
     }
     else{
