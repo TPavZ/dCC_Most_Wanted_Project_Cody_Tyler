@@ -109,6 +109,7 @@ function searchByEyeColor(people) {
   }
   else {
     alert("No Results Found!");
+    searchByEyeColor();
   }
   return searchEyeColor;
 }
@@ -133,6 +134,7 @@ function searchByGender(people) {
   }
   else {
     alert("No Results Found!");
+    searchByGender();
   }
   return searchGender;
 }
@@ -157,6 +159,7 @@ function searchByHeight(people) {
   }
   else {
     alert("No Results Found!");
+    searchByHeight();
   }
   return searchHeight;
 }
@@ -181,6 +184,7 @@ function searchByWeight(people) {
   }
   else {
     alert("No Results Found!");
+    searchByWeight();
   }
   return searchWeight;
 }
@@ -205,6 +209,7 @@ function searchByOccupation(people) {
   }
   else {
     alert("No Results Found!");
+    searchByOccupation();
   }
   return searchOccupation;
 }
@@ -229,6 +234,7 @@ function searchByDateOfBirth(people) {
   }
   else {
     alert("No Results Found!");
+    searchByDateOfBirth();
   }
   return searchDateOfBirth;
 }
