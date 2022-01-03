@@ -467,40 +467,45 @@ function eyeColorValidation(input) {
 }
 
 function genderValidation(input) {
-  if (input.toLowerCase() == "male" || input.toLowerCase() == "female")
+  if (input.toLowerCase() == "male" || input.toLowerCase() == "female") {
     return true
+  }
   else {
     return false
   }
 }
 
 function heightValidation(input) {
-  if (input > 0 && input < 100)
+  if (input > 0 && input < 100) {
     return true
+  }
   else {
     return false
   }
 }
 
 function weightValidation(input) {
-  if (input > 0 && input < 300)
+  if (input > 0 && input < 300) {
     return true
+  }
   else {
     return false
   }
 }
 
 function occupationValidation(input) {
-  if (input.toLowerCase() == "assistant" || input.toLowerCase() == "doctor" || input.toLowerCase() == "politician" || input.toLowerCase() == "nurse" || input.toLowerCase() == "landscaper" || input.toLowerCase() == "programmer" || input.toLowerCase() == "architect" || input.toLowerCase() == "student")
+  if (input.toLowerCase() == "assistant" || input.toLowerCase() == "doctor" || input.toLowerCase() == "politician" || input.toLowerCase() == "nurse" || input.toLowerCase() == "landscaper" || input.toLowerCase() == "programmer" || input.toLowerCase() == "architect" || input.toLowerCase() == "student") {
     return true
+  }
   else {
     return false
   }
 }
 
 function dateOfBirthValidation(input) {
-  if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(input))
+  if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(input)) {
     return false
+  }
   else {
     return true
   }
