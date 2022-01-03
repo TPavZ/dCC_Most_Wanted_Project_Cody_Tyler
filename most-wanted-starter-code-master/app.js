@@ -138,7 +138,7 @@ function searchByGender(people) {
 }
 
 function searchByHeight(people) {
-  let height = promptFor("What is the person's height?", autoValid);
+  let height = promptFor("What is the person's height?", heightValidation);
 
   let searchHeight = people.filter(function (potentialMatch) {
     if (potentialMatch.height == height) {
@@ -162,7 +162,7 @@ function searchByHeight(people) {
 }
 
 function searchByWeight(people) {
-  let weight = promptFor("What is the person's weight?", autoValid);
+  let weight = promptFor("What is the person's weight?", weightValidation);
 
   let searchWeight = people.filter(function (potentialMatch) {
     if (potentialMatch.weight == weight) {
@@ -461,6 +461,22 @@ function genderValidation(input){
     return true
   else{
     return false
+  }
+}
+
+function heightValidation(input){
+  if(input > 0 && input < 100)
+    return true
+  else{
+    return false
+  }
+}
+
+function weightValidation(input){
+  if(input > 0 && input < 300)
+    return true
+  else{
+    return false 
   }
 }
 //#endregion
