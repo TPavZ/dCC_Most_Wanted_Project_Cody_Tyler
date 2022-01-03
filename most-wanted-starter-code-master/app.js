@@ -37,7 +37,7 @@ function mainMenu(person, people) {
     return app(people); // restart
   }
 
-  let displayOption = promptFor("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let displayOption = promptFor("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", menuValidation).toLocaleLowerCase;
 
   switch (displayOption) {
     case "info":
@@ -516,17 +516,27 @@ function firstNameValidation(input) {
     return true
   }
   else {
+    alert("No Results Found!");
     return false
   }
 }
-
 
 function lastNameValidation(input) {
   if (input === "Madden" || input === "Pafoy" || input === "Bob" || input === "Potatoo" || input === "Walkens") {
     return true
   }
   else {
+    alert("No Results Found!");
     return false
   }
 }
-//#endregion
+
+function menuValidation(input) {
+  if (input.toLowerCase() == "info" || input.toLowerCase() == "family" || input.toLowerCase() == "descendants" || input.toLowerCase() == "restart" || input.toLowerCase() == "quit") {
+    return true
+  }
+  else {
+    return false
+  }
+}
+//#endregion 
