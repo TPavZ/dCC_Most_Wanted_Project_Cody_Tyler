@@ -15,7 +15,7 @@ function app(people) {
       searchResults = searchByName(people);
       break;
     case 'no':
-      searchResults = searchBySingleTrait(people);
+      searchResults = traitsSearch(people);
       // TODO: search by traits
       break;
     default:
@@ -232,13 +232,12 @@ function searchByDateOfBirth(people) {
   }
   return searchDateOfBirth;
 }
-
-function searchBySingleTrait(people) {
-  let search = promptFor("Would you like to sort by a person's specific trait? Enter 'yes' or 'no' \n To search by multiple traits Enter 'multi'", autoValid).toLowerCase();
+function traitsSearch(people) {
+  let search = promptFor("Would you like to sort by a person's specific traits? Enter 'yes' or 'no' ", autoValid).toLowerCase();
   let searchSelection = people;
   switch (search) {
     case 'yes':
-      let selection = promptFor("By what trait would you like to search by? Enter corresponding number \n" +
+      let selection = promptFor("By what traits would you like to search by? Enter corresponding numbers. \n \n EXAMPLE: 1, 2, 3 etc." +
         "1. Eye Color \n" +
         "2. Gender \n" +
         "3. Height \n" +
@@ -265,9 +264,6 @@ function searchBySingleTrait(people) {
         searchSelection = searchByDateOfBirth(searchSelection);
       }
       break;
-    case 'multi':
-      search = searchByMultipleTrait(people);
-      break;
     case 'no':
       app(people);
       break;
@@ -275,7 +271,7 @@ function searchBySingleTrait(people) {
   return searchSelection
 }
 
-function searchByMultipleTrait(people) {
+/* function searchByMultipleTrait(people) {
   let selection = promptFor("By what traits would you like to search by? Enter corresponding numbers - ex. 1, 2, 3: \n" +
     "1. Eye Color \n" +
     "2. Gender \n" +
@@ -306,7 +302,7 @@ function searchByMultipleTrait(people) {
   if (selection.includes(6)) {
     searchSelection = searchByDateOfBirth(searchSelection);
   }
-}
+} */
 
 //#endregion
 
@@ -397,38 +393,38 @@ function displaySiblings(person) {
     alert("No Siblings Found!")
 }
 
-function displayDescendants(person){
-  let results = data.filter(function(element){
-    if(person.id === element.parents[0] || (person.id === element.parents[1])){
-        return true;
-    }
-    else{
-        return false;
-      }
-  })
-    if(results.length != 0){
-      let descendants = ""
-      for (let i = 0; i< results.length; i++){
-        descendants += results[i].firstName + " " + results[i].lastName + "\n"
-        displaySecondGenDescendants(results[i])  
-      }
-      alert("Children: " + descendants) 
-      } else
-      alert("No Children Found!")
-}
-
-function displaySecondGenDescendants(descendants){
-  let results = data.filter(function(element){
-    if(descendants.id === element.parents[0]){
+function displayDescendants(person) {
+  let results = data.filter(function (element) {
+    if (person.id === element.parents[0] || (person.id === element.parents[1])) {
       return true;
     }
-    else{
+    else {
       return false;
     }
   })
-  if(results.length != 0){
-    let secondGenDescendants =""
-    for (let i =0; i < results.length; i++){
+  if (results.length != 0) {
+    let descendants = ""
+    for (let i = 0; i < results.length; i++) {
+      descendants += results[i].firstName + " " + results[i].lastName + "\n"
+      displaySecondGenDescendants(results[i])
+    }
+    alert("Children: " + descendants)
+  } else
+    alert("No Children Found!")
+}
+
+function displaySecondGenDescendants(descendants) {
+  let results = data.filter(function (element) {
+    if (descendants.id === element.parents[0]) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  })
+  if (results.length != 0) {
+    let secondGenDescendants = ""
+    for (let i = 0; i < results.length; i++) {
       secondGenDescendants += results[i].firstName + " " + results[i].lastName + "\n"
     }
     alert("Grandkids: " + secondGenDescendants)
