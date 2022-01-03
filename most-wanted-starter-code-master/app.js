@@ -244,7 +244,7 @@ function traitsSearch(people) {
         "4. Weight \n" +
         "5. Occupation \n" +
         "6. Date Of Birth \n",
-        autoValid);
+        traitValidation);
       if (selection.includes(1)) {
         searchSelection = searchByEyeColor(searchSelection);
       }
@@ -471,8 +471,13 @@ function autoValid(input) {
 
 //Unfinished validation function you can use for any of your custom validation callbacks.
 //can be used for things like eye color validation for example.
-function customValidation(input) {
+function traitValidation(input) {
+  if(input < 1 || input > 6){
+    return false
+  }
 
 }
+
+
 
 //#endregion
