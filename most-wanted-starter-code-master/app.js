@@ -233,11 +233,11 @@ function searchByDateOfBirth(people) {
   return searchDateOfBirth;
 }
 function traitsSearch(people) {
-  let search = promptFor("Would you like to sort by a person's specific traits? Enter 'yes' or 'no' ", autoValid).toLowerCase();
+  let search = promptFor("Would you like to sort by a person's specific traits? Enter 'yes' or 'no' ", yesNo).toLowerCase();
   let searchSelection = people;
   switch (search) {
     case 'yes':
-      let selection = promptFor("By what traits would you like to search by? Enter corresponding numbers. \n \n EXAMPLE: 1, 2, 3 etc." +
+      let selection = promptFor("By what traits would you like to search by? Enter corresponding numbers. \n EXAMPLE: 1, 2, 3 etc. \n" +
         "1. Eye Color \n" +
         "2. Gender \n" +
         "3. Height \n" +
@@ -268,41 +268,11 @@ function traitsSearch(people) {
       app(people);
       break;
   }
-  return searchSelection
+  if (!person) {
+    return app(people); // restart
+  }
+  /* return searchSelection */
 }
-
-/* function searchByMultipleTrait(people) {
-  let selection = promptFor("By what traits would you like to search by? Enter corresponding numbers - ex. 1, 2, 3: \n" +
-    "1. Eye Color \n" +
-    "2. Gender \n" +
-    "3. Height \n" +
-    "4. Weight \n" +
-    "5. Occupation \n" +
-    "6. Date Of Birth \n",
-    autoValid);
-
-  // need to figure out a way to input multiple values from above ex. 1, 2, 3
-
-  let searchSelection = people;
-  if (selection.includes(1)) {
-    searchSelection = searchByEyeColor(searchSelection);
-  }
-  if (selection.includes(2)) {
-    searchSelection = searchByGender(searchSelection);
-  }
-  if (selection.includes(3)) {
-    searchSelection = searchByHeight(searchSelection);
-  }
-  if (selection.includes(4)) {
-    searchSelection = searchByWeight(searchSelection);
-  }
-  if (selection.includes(5)) {
-    searchSelection = searchByOccupation(searchSelection);
-  }
-  if (selection.includes(6)) {
-    searchSelection = searchByDateOfBirth(searchSelection);
-  }
-} */
 
 //#endregion
 
