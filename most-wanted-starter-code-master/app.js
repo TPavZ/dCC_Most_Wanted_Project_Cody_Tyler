@@ -186,7 +186,7 @@ function searchByWeight(people) {
 }
 
 function searchByOccupation(people) {
-  let occupation = promptFor("What is the person's occupation?", autoValid);
+  let occupation = promptFor("What is the person's occupation?", occupationValidation);
 
   let searchOccupation = people.filter(function (potentialMatch) {
     if (potentialMatch.occupation === occupation) {
@@ -477,6 +477,14 @@ function weightValidation(input) {
   if (input > 0 && input < 300)
     return true
   else {
+    return false
+  }
+}
+
+function occupationValidation(input){
+  if(input == "assistant" || input == "doctor" || input == "politician" || input == "nurse" || input == "landscaper" || input == "programmer" || input == "architect" || input == "student")
+    return true
+  else{
     return false
   }
 }
