@@ -456,7 +456,7 @@ function traitValidation(input) {
 }
 
 function eyeColorValidation(input) {
-  if (input == "brown" || input == "black" || input == "hazel" || input == "blue" || input == "green")
+  if (input.toLowerCase() == "brown" || input.toLowerCase() == "black" || input.toLowerCase() == "hazel" || input.toLowerCase() == "blue" || input.toLowerCase() == "green")
     return true
   else {
     return false
@@ -464,7 +464,7 @@ function eyeColorValidation(input) {
 }
 
 function genderValidation(input) {
-  if (input == "male" || input == "female")
+  if (input.toLowerCase() == "male" || input.toLowerCase() == "female")
     return true
   else {
     return false
@@ -488,7 +488,7 @@ function weightValidation(input) {
 }
 
 function occupationValidation(input) {
-  if (input == "assistant" || input == "doctor" || input == "politician" || input == "nurse" || input == "landscaper" || input == "programmer" || input == "architect" || input == "student")
+  if (input.toLowerCase() == "assistant" || input.toLowerCase() == "doctor" || input.toLowerCase() == "politician" || input.toLowerCase() == "nurse" || input.toLowerCase() == "landscaper" || input.toLowerCase() == "programmer" || input.toLowerCase() == "architect" || input.toLowerCase() == "student")
     return true
   else {
     return false
