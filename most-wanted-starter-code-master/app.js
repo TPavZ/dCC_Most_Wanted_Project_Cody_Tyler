@@ -90,7 +90,7 @@ function searchByName(people) {
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people) {
-  let eyeColor = promptFor("What is the person's eye color?", eyeColorValidation);
+  let eyeColor = promptFor("What is the person's eye color?", eyeColorValidation).toLowerCase();
 
   let searchEyeColor = people.filter(function (potentialMatch) {
     if (potentialMatch.eyeColor === eyeColor) {
@@ -115,7 +115,7 @@ function searchByEyeColor(people) {
 }
 
 function searchByGender(people) {
-  let gender = promptFor("What is the person's gender?", genderValidation);
+  let gender = promptFor("What is the person's gender?", genderValidation).toLowerCase();
 
   let searchGender = people.filter(function (potentialMatch) {
     if (potentialMatch.gender === gender) {
@@ -190,7 +190,7 @@ function searchByWeight(people) {
 }
 
 function searchByOccupation(people) {
-  let occupation = promptFor("What is the person's occupation?", occupationValidation);
+  let occupation = promptFor("What is the person's occupation?", occupationValidation).toLowerCase();
 
   let searchOccupation = people.filter(function (potentialMatch) {
     if (potentialMatch.occupation === occupation) {
@@ -448,19 +448,19 @@ function autoValid(input) {
 //Unfinished validation function you can use for any of your custom validation callbacks.
 //can be used for things like eye color validation for example.
 function traitValidation(input) {
-
-  inputArray = input.split(", ")
+  let inputArray = input.split(", ")
   for (let i = 0; i < inputArray.length; i++) {
-    if (inputArray[i] === "1"|| inputArray[i] === "2" || inputArray[i] === "3" || inputArray[i] === "4" ||inputArray[i] === "5" || inputArray[i] === "6"){
-      return true
+    if (inputArray[i] !== "1" && inputArray[i] !== "2" && inputArray[i] !== "3" && inputArray[i] !== "4" && inputArray[i] !== "5" && inputArray[i] !== "6") {
+      return false
     }
-    return false
   }
+  return true
 }
 
 function eyeColorValidation(input) {
-  if (input.toLowerCase() == "brown" || input.toLowerCase() == "black" || input.toLowerCase() == "hazel" || input.toLowerCase() == "blue" || input.toLowerCase() == "green")
+  if (input.toLowerCase() == "brown" || input.toLowerCase() == "black" || input.toLowerCase() == "hazel" || input.toLowerCase() == "blue" || input.toLowerCase() == "green") {
     return true
+  }
   else {
     return false
   }
@@ -500,7 +500,7 @@ function occupationValidation(input) {
 
 function dateOfBirthValidation(input) {
   if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(input))
-    return false  
+    return false
   else {
     return true
   }
