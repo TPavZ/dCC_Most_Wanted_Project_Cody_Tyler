@@ -73,8 +73,8 @@ function mainMenu(person, people) {
 
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
-  let firstName = promptFor("What is the person's first name?", autoValid);
-  let lastName = promptFor("What is the person's last name?", autoValid);
+  let firstName = promptFor("What is the person's first name?", firstNameValidation);
+  let lastName = promptFor("What is the person's last name?", lastNameValidation);
 
   let foundPerson = people.filter(function (potentialMatch) {
     if (potentialMatch.firstName === firstName && potentialMatch.lastName === lastName) {
@@ -510,4 +510,23 @@ function dateOfBirthValidation(input) {
     return true
   }
 }
+
+function firstNameValidation(input){
+  if(input == "Billy" || input == "Uma" || input == "Michael" || input == "Jon" || input == "Jack" ||input == "Jen" ||input == "Mister" ||input == "Missuz" ||input == "Joy" ||input == "Mader" ||input == "Jill" ||input == "Ralph" ||input == "Jasmine" ||input == "Annie" ||input == "Dave" ||input == "Amii" ||input == "Regina" ||input == "Hana" ||input == "Eloise" ||input == "Mattias" ||input == "Ellen" ||input == "Joey"){
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+
+function lastNameValidation(input){
+  if(input == "Madden" || input == "Pafoy" || input == "Bob" || input == "Potatoo" || input == "Walkens"){
+    return true
+  }
+  else{
+    return false
+  }
+  }
 //#endregion
