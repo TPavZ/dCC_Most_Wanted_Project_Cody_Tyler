@@ -210,7 +210,7 @@ function searchByOccupation(people) {
 }
 
 function searchByDateOfBirth(people) {
-  let dob = promptFor("What is the person's date of birth? Format: mo/dy/year", autoValid);
+  let dob = promptFor("What is the person's date of birth? Format: mo/dy/year", dateOfBirthValidation);
 
   let searchDateOfBirth = people.filter(function (potentialMatch) {
     if (potentialMatch.dob === dob) {
@@ -481,11 +481,19 @@ function weightValidation(input) {
   }
 }
 
-function occupationValidation(input){
-  if(input == "assistant" || input == "doctor" || input == "politician" || input == "nurse" || input == "landscaper" || input == "programmer" || input == "architect" || input == "student")
+function occupationValidation(input) {
+  if (input == "assistant" || input == "doctor" || input == "politician" || input == "nurse" || input == "landscaper" || input == "programmer" || input == "architect" || input == "student")
     return true
-  else{
+  else {
     return false
+  }
+}
+
+function dateOfBirthValidation(input) {
+  if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(input))
+    return false  
+  else {
+    return true
   }
 }
 //#endregion
