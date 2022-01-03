@@ -448,9 +448,12 @@ function autoValid(input) {
 //Unfinished validation function you can use for any of your custom validation callbacks.
 //can be used for things like eye color validation for example.
 function traitValidation(input) {
-  if (input >= "1" && input <= "6")
-    return true
-  else {
+
+  inputArray = input.split(", ")
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] === "1"|| inputArray[i] === "2" || inputArray[i] === "3" || inputArray[i] === "4" ||inputArray[i] === "5" || inputArray[i] === "6"){
+      return true
+    }
     return false
   }
 }
