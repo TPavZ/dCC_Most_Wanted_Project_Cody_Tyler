@@ -275,9 +275,9 @@ function traitsSearch(people) {
       break;
   }
   if (!person) {
-    return app(people); // restart
+    return app(people);
   }
-  /* return searchSelection */
+
 }
 
 //#endregion
@@ -511,8 +511,8 @@ function dateOfBirthValidation(input) {
   }
 }
 
-function firstNameValidation(input){
-  if(input == "Billy" || input == "Uma" || input == "Michael" || input == "Jon" || input == "Jack" ||input == "Jen" ||input == "Mister" ||input == "Missuz" ||input == "Joy" ||input == "Mader" ||input == "Jill" ||input == "Ralph" ||input == "Jasmine" ||input == "Annie" ||input == "Dave" ||input == "Amii" ||input == "Regina" ||input == "Hana" ||input == "Eloise" ||input == "Mattias" ||input == "Ellen" ||input == "Joey"){
+function firstNameValidation(input) {
+  if (input === "Billy" || input === "Uma" || input === "Michael" || input === "Jon" || input === "Jack" || input === "Jen" || input === "Mister" || input === "Missuz" || input === "Joy" || input === "Mader" || input === "Jill" || input === "Ralph" || input === "Jasmine" || input === "Annie" || input === "Dave" || input === "Amii" || input === "Regina" || input === "Hana" || input === "Eloise" || input === "Mattias" || input === "Ellen" || input === "Joey") {
     return true
   }
   else {
@@ -521,12 +521,12 @@ function firstNameValidation(input){
 }
 
 
-function lastNameValidation(input){
-  if(input == "Madden" || input == "Pafoy" || input == "Bob" || input == "Potatoo" || input == "Walkens"){
+function lastNameValidation(input) {
+  if (input === "Madden" || input === "Pafoy" || input === "Bob" || input === "Potatoo" || input === "Walkens") {
     return true
   }
-  else{
+  else {
     return false
   }
-  }
+}
 //#endregion
