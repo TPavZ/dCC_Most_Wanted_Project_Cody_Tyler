@@ -442,41 +442,42 @@ function autoValid(input) {
 //Unfinished validation function you can use for any of your custom validation callbacks.
 //can be used for things like eye color validation for example.
 function traitValidation(input) {
-  if(input < 1 || input > 6){
-    return false
-  }
-
-}
-
-function eyeColorValidation(input){
-  if(input == "brown" || input == "black" || input == "hazel" || input == "blue" || input == "green")
+  if (input >= 1 || input <= 6)
     return true
-  else{
+  else {
     return false
   }
 }
 
-function genderValidation(input){
-  if(input == "male" || input == "female")
+function eyeColorValidation(input) {
+  if (input == "brown" || input == "black" || input == "hazel" || input == "blue" || input == "green")
     return true
-  else{
+  else {
     return false
   }
 }
 
-function heightValidation(input){
-  if(input > 0 && input < 100)
+function genderValidation(input) {
+  if (input == "male" || input == "female")
     return true
-  else{
+  else {
     return false
   }
 }
 
-function weightValidation(input){
-  if(input > 0 && input < 300)
+function heightValidation(input) {
+  if (input > 0 && input < 100)
     return true
-  else{
-    return false 
+  else {
+    return false
+  }
+}
+
+function weightValidation(input) {
+  if (input > 0 && input < 300)
+    return true
+  else {
+    return false
   }
 }
 //#endregion
