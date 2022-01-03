@@ -114,7 +114,7 @@ function searchByEyeColor(people) {
 }
 
 function searchByGender(people) {
-  let gender = promptFor("What is the person's gender?", autoValid);
+  let gender = promptFor("What is the person's gender?", genderValidation);
 
   let searchGender = people.filter(function (potentialMatch) {
     if (potentialMatch.gender === gender) {
@@ -456,4 +456,11 @@ function eyeColorValidation(input){
   }
 }
 
+function genderValidation(input){
+  if(input == "male" || input == "female")
+    return true
+  else{
+    return false
+  }
+}
 //#endregion
