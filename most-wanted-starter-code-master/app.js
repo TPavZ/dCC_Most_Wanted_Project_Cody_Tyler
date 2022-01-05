@@ -269,15 +269,13 @@ function traitsSearch(people) {
       if (selection.includes(6)) {
         searchSelection = searchByDateOfBirth(searchSelection);
       }
+
       break;
     case 'no':
       app(people);
       break;
   }
-  if (!person) {
-    return app(people);
-  }
-
+  return searchSelection
 }
 
 //#endregion
